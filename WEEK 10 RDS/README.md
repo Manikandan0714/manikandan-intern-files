@@ -43,38 +43,4 @@ terraform plan
 # You will be prompted to enter a DB Password.
 terraform apply
 
-🔌 How to Connect (MySQL Workbench)
-Once terraform apply finishes, you will see an output like this:
-db_endpoint = "my-free-tier-db.cx123...us-east-1.rds.amazonaws.com:3306"
-Open MySQL Workbench.
 
-Click (+) to add a connection.
-
-Hostname: Paste the URL from db_endpoint (remove :3306 if there is a separate Port field).
-
-Port: 3306
-
-Username: admin (or what you set in variables.tf).
-
-Password: The password you typed during the apply step.
-
-Click Test Connection.
-
-🛠 Troubleshooting
-Error: "FreeTierRestrictionError"
-
-Ensure backup_retention_period = 0 in rds.tf.
-
-Connection Timeout
-
-Your home IP address may have changed.
-
-Check your new IP on Google.
-
-Update variables.tf with the new IP.
-
-Run terraform apply again to update the firewall instantly.
-
-🗑 Cleanup (Destroy)
-To stop the instance and stop all charges:
-terraform destroy
