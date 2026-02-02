@@ -1,0 +1,29 @@
+CMD:
+Build:
+    cd cmd-only
+    docker build -t cmd-only .
+Run:
+    docker run cmd-only
+Override CMD:
+    docker run cmd-only echo "CMD overridden"
+
+
+ENTRYPOINT:
+Build:
+    cd entrypoint-only
+    docker build -t ep-only .
+Run:
+    DOCKER run ep-only
+Override ENTRYPOINT:
+    docker run ep-only echo "Trying override"
+
+
+ENTRYPOINT VS CMD:
+Build:
+    cd entrypoint-and-cmd
+    docker build -t ep-and-cmd .
+Run:
+    docker run ep-and-cmd
+Override:
+    docker run ep-and-cmd "CMD overridden"
+
